@@ -4,11 +4,12 @@ Summary:	Apache DoS Evasive Maneuvers Module
 Summary(pl):	Modu³ manewrów omijaj±cych ataki DoS dla Apache
 Name:		apache-mod_%{mod_name}
 Version:	1.8
-Release:	2
+Release:	3
 License:	GPL v2+
 Group:		Networking/Daemons
 Source0:	http://www.nuclearelephant.com/projects/dosevasive/mod_%{mod_name}.%{version}.tar.gz
 # Source0-md5:	243d24e205c3b82ef55542887e03d998
+Source1:	%{name}.conf
 URL:		http://www.nuclearelephant.com/projects/dosevasive/
 BuildRequires:	%{apxs}
 BuildRequires:	apache-devel >= 2
@@ -44,8 +45,10 @@ nadu¿ycia poczt± elektroniczn± i poprzez sysloga.
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_pkglibdir}
+install -d $RPM_BUILD_ROOT%{_sysconfdir}/httpd.conf
 
 install .libs/mod_%{mod_name}20.so $RPM_BUILD_ROOT%{_pkglibdir}/mod_%{mod_name}.so
+install %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/httpd.conf/80_%{mod_name}.conf
 
 %clean
 rm -rf $RPM_BUILD_ROOT
