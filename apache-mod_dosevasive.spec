@@ -8,6 +8,7 @@ Release:	0.1
 License:	GPL
 Group:		Networking/Daemons
 Source0:	http://www.networkdweebs.com/stuff/mod_%{mod_name}.tar.gz
+# Source0-md5:	e2c96678c1c8262e12e7ecb8bdf43550
 URL:		http://www.networkdweebs.com/stuff/security.html
 BuildRequires:	%{apxs}
 BuildRequires:	apache-devel
