@@ -4,7 +4,7 @@ Summary:	Apache DoS Evasive Maneuvers Module
 Summary(pl):	Modu³ manewrów omijaj±cych ataki DoS dla Apache
 Name:		apache-mod_%{mod_name}
 Version:	1.8
-Release:	1
+Release:	2
 License:	GPL v2+
 Group:		Networking/Daemons
 Source0:	http://www.nuclearelephant.com/projects/dosevasive/mod_%{mod_name}.%{version}.tar.gz
