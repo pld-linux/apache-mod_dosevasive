@@ -45,10 +45,10 @@ nadu¿ycia poczt± elektroniczn± i poprzez sysloga.
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_pkglibdir}
-install -d $RPM_BUILD_ROOT%{_sysconfdir}/httpd.conf
+install -d $RPM_BUILD_ROOT%{_sysconfdir}/httpd/httpd.conf
 
 install .libs/mod_%{mod_name}20.so $RPM_BUILD_ROOT%{_pkglibdir}/mod_%{mod_name}.so
-install %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/httpd.conf/80_%{mod_name}.conf
+install %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/httpd/httpd.conf/80_%{mod_name}.conf
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -71,3 +71,4 @@ fi
 %defattr(644,root,root,755)
 %doc README
 %attr(755,root,root) %{_pkglibdir}/*
+%attr(640,root,root) %config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/httpd/httpd.conf/*
