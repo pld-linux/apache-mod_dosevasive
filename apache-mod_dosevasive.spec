@@ -12,6 +12,7 @@ Source0:	http://www.nuclearelephant.com/projects/dosevasive/mod_%{mod_name}.%{ve
 URL:		http://www.nuclearelephant.com/projects/dosevasive/
 BuildRequires:	%{apxs}
 BuildRequires:	apache-devel >= 2
+BuildRequires:	zlib-devel
 Requires(post,preun):	%{apxs}
 Requires:	apache >= 2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
