@@ -4,16 +4,16 @@ Summary:	Apache DoS Evasive Maneuvers Module
 Summary(pl):	Modu³ manewrów omijaj±cych ataki DoS dla Apache
 Name:		apache-mod_%{mod_name}
 Version:	1.8
-Release:	0.1
-License:	GPL
+Release:	1
+License:	GPL v2+
 Group:		Networking/Daemons
 Source0:	http://www.nuclearelephant.com/projects/dosevasive/mod_%{mod_name}.%{version}.tar.gz
 # Source0-md5:	243d24e205c3b82ef55542887e03d998
 URL:		http://www.nuclearelephant.com/projects/dosevasive/
 BuildRequires:	%{apxs}
-BuildRequires:	apache-devel
+BuildRequires:	apache-devel >= 2
 Requires(post,preun):	%{apxs}
-Requires:	apache
+Requires:	apache >= 2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_pkglibdir	%(%{apxs} -q LIBEXECDIR)
@@ -35,16 +35,16 @@ ipchains, firewallami, routerami itp. mod_dosevasive obecnie raportuje
 nadu¿ycia poczt± elektroniczn± i poprzez sysloga.
 
 %prep
-%setup -q -n %{mod_name}
+%setup -q -n mod_%{mod_name}
 
 %build
-%{apxs} -c mod_%{mod_name}.c -o mod_%{mod_name}.so -lz
+%{apxs} -c mod_%{mod_name}20.c -lz
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_pkglibdir}
 
-install mod_%{mod_name}.so $RPM_BUILD_ROOT%{_pkglibdir}
+install .libs/mod_%{mod_name}20.so $RPM_BUILD_ROOT%{_pkglibdir}/mod_%{mod_name}.so
 
 %clean
 rm -rf $RPM_BUILD_ROOT
