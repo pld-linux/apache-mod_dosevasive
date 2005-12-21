@@ -4,7 +4,7 @@ Summary:	Apache DoS Evasive Maneuvers Module
 Summary(pl):	Modu³ manewrów omijaj±cych ataki DoS dla Apache
 Name:		apache-mod_%{mod_name}
 Version:	1.10
-Release:	1
+Release:	2
 License:	GPL v2+
 Group:		Networking/Daemons
 Source0:	http://www.nuclearelephant.com/projects/dosevasive/mod_%{mod_name}_%{version}.tar.gz
@@ -12,13 +12,14 @@ Source0:	http://www.nuclearelephant.com/projects/dosevasive/mod_%{mod_name}_%{ve
 Source1:	%{name}.conf
 URL:		http://www.nuclearelephant.com/projects/dosevasive/
 BuildRequires:	%{apxs}
-BuildRequires:	apache-devel >= 2
+BuildRequires:	apache-devel >= 2.0
 BuildRequires:	zlib-devel
-Requires(post,preun):	%{apxs}
-Requires:	apache >= 2
+Requires:	apache(modules-api) = %apache_modules_api
+Requires:	apache >= 2.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		_pkglibdir	%(%{apxs} -q LIBEXECDIR)
+%define		_pkglibdir	%(%{apxs} -q LIBEXECDIR 2>/dev/null)
+%define		_sysconfdir	%(%{apxs} -q SYSCONFDIR 2>/dev/null)
 
 %description
 mod_dosevasive is an evasive maneuvers module for Apache to provide
@@ -54,14 +55,12 @@ install %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/httpd/httpd.conf/80_%{mod_name}
 rm -rf $RPM_BUILD_ROOT
 
 %post
-%{apxs} -e -a -n %{mod_name} %{_pkglibdir}/mod_%{mod_name}.so 1>&2
 if [ -f /var/lock/subsys/httpd ]; then
 	/etc/rc.d/init.d/httpd restart 1>&2
 fi
 
 %preun
 if [ "$1" = "0" ]; then
-	%{apxs} -e -A -n %{mod_name} %{_pkglibdir}/mod_%{mod_name}.so 1>&2
 	if [ -f /var/lock/subsys/httpd ]; then
 		/etc/rc.d/init.d/httpd restart 1>&2
 	fi
