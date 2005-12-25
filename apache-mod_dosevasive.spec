@@ -4,7 +4,7 @@ Summary:	Apache DoS Evasive Maneuvers Module
 Summary(pl):	Modu³ manewrów omijaj±cych ataki DoS dla Apache
 Name:		apache-mod_%{mod_name}
 Version:	1.10
-Release:	2
+Release:	3
 License:	GPL v2+
 Group:		Networking/Daemons
 Source0:	http://www.nuclearelephant.com/projects/dosevasive/mod_%{mod_name}_%{version}.tar.gz
@@ -46,10 +46,10 @@ nadu¿ycia poczt± elektroniczn± i poprzez sysloga.
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_pkglibdir}
-install -d $RPM_BUILD_ROOT%{_sysconfdir}/httpd/httpd.conf
+install -d $RPM_BUILD_ROOT%{_sysconfdir}/httpd.conf
 
 install .libs/mod_%{mod_name}20.so $RPM_BUILD_ROOT%{_pkglibdir}/mod_%{mod_name}.so
-install %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/httpd/httpd.conf/80_%{mod_name}.conf
+install %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/httpd.conf/80_%{mod_name}.conf
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -70,4 +70,4 @@ fi
 %defattr(644,root,root,755)
 %doc README
 %attr(755,root,root) %{_pkglibdir}/*
-%attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/httpd/httpd.conf/*
+%attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/httpd.conf/*
