@@ -1,28 +1,34 @@
-%define		mod_name	dosevasive
+# TODO: change spac name to apache-mod_evasive.spec as it is now official name
+# see http://www.nuclearelephant.com/projects/dosevasive/
+%define		mod_name	evasive
 %define 	apxs		/usr/sbin/apxs
 Summary:	Apache DoS Evasive Maneuvers Module
 Summary(pl):	Modu³ manewrów omijaj±cych ataki DoS dla Apache
 Name:		apache-mod_%{mod_name}
-Version:	1.10
-Release:	3
+Version:	1.10.1
+Release:	1
 License:	GPL v2+
 Group:		Networking/Daemons
-Source0:	http://www.nuclearelephant.com/projects/dosevasive/mod_%{mod_name}_%{version}.tar.gz
-# Source0-md5:	5e5eee54b3fba64c83898828693931ff
+Source0:	http://www.nuclearelephant.com/projects/mod_evasive/mod_%{mod_name}_%{version}.tar.gz
+# Source0-md5:	784fca4a124f25ccff5b48c7a69a65e5
 Source1:	%{name}.conf
-URL:		http://www.nuclearelephant.com/projects/dosevasive/
+URL:		http://www.nuclearelephant.com/projects/mod_evasive/
 BuildRequires:	%{apxs}
 BuildRequires:	apache-devel >= 2.0
 BuildRequires:	rpmbuild(macros) >= 1.268
 BuildRequires:	zlib-devel
+Obsoletes:      apache-mod_dosevasive
+Provides:       apache-mod_dosevasive
 Requires:	apache(modules-api) = %apache_modules_api
+
+
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_pkglibdir	%(%{apxs} -q LIBEXECDIR 2>/dev/null)
 %define		_sysconfdir	%(%{apxs} -q SYSCONFDIR 2>/dev/null)
 
 %description
-mod_dosevasive is an evasive maneuvers module for Apache to provide
+mod_(dos)evasive is an evasive maneuvers module for Apache to provide
 evasive action in the event of an HTTP DoS or DDoS attack or brute
 force attack. It is also designed to be a detection and network
 management tool, and can be easily configured to talk to ipchains,
@@ -30,7 +36,7 @@ firewalls, routers, and etcetera. mod_dosevasive presently reports
 abuses via email and syslog facilities.
 
 %description -l pl
-mod_dosevasive to modu³ manewrów omijaj±cych dla Apache, zapewniaj±cy
+mod_(dos)evasive to modu³ manewrów omijaj±cych dla Apache, zapewniaj±cy
 akcje omijaj±ce w przypadku ataków DoS, DDoS lub brute force na us³ugê
 HTTP. Zosta³ zaprojektowany tak¿e jako narzêdzie do wykrywania i
 zarz±dzania sieci±, mo¿e byæ ³atwo skonfigurowany do wspó³pracy z
