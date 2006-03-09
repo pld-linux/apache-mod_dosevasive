@@ -1,4 +1,4 @@
-# TODO: change spac name to apache-mod_evasive.spec as it is now official name
+# TODO: cp spec name to apache-mod_evasive.spec as it is now official name
 # see http://www.nuclearelephant.com/projects/dosevasive/
 %define		mod_name	evasive
 %define 	apxs		/usr/sbin/apxs
@@ -17,11 +17,9 @@ BuildRequires:	%{apxs}
 BuildRequires:	apache-devel >= 2.0
 BuildRequires:	rpmbuild(macros) >= 1.268
 BuildRequires:	zlib-devel
-Obsoletes:      apache-mod_dosevasive
-Provides:       apache-mod_dosevasive
 Requires:	apache(modules-api) = %apache_modules_api
-
-
+Provides:	apache-mod_dosevasive
+Obsoletes:	apache-mod_dosevasive
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_pkglibdir	%(%{apxs} -q LIBEXECDIR 2>/dev/null)
