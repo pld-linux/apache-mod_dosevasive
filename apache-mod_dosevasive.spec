@@ -3,7 +3,7 @@
 %define		mod_name	evasive
 %define 	apxs		/usr/sbin/apxs
 Summary:	Apache DoS Evasive Maneuvers Module
-Summary(pl.UTF-8):   Moduł manewrów omijających ataki DoS dla Apache
+Summary(pl.UTF-8):	Moduł manewrów omijających ataki DoS dla Apache
 Name:		apache-mod_%{mod_name}
 Version:	1.10.1
 Release:	1
