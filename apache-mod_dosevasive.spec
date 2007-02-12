@@ -3,7 +3,7 @@
 %define		mod_name	evasive
 %define 	apxs		/usr/sbin/apxs
 Summary:	Apache DoS Evasive Maneuvers Module
-Summary(pl):	Modu³ manewrów omijaj±cych ataki DoS dla Apache
+Summary(pl.UTF-8):   ModuÅ‚ manewrÃ³w omijajÄ…cych ataki DoS dla Apache
 Name:		apache-mod_%{mod_name}
 Version:	1.10.1
 Release:	1
@@ -33,13 +33,13 @@ management tool, and can be easily configured to talk to ipchains,
 firewalls, routers, and etcetera. mod_dosevasive presently reports
 abuses via email and syslog facilities.
 
-%description -l pl
-mod_(dos)evasive to modu³ manewrów omijaj±cych dla Apache, zapewniaj±cy
-akcje omijaj±ce w przypadku ataków DoS, DDoS lub brute force na us³ugê
-HTTP. Zosta³ zaprojektowany tak¿e jako narzêdzie do wykrywania i
-zarz±dzania sieci±, mo¿e byæ ³atwo skonfigurowany do wspó³pracy z
+%description -l pl.UTF-8
+mod_(dos)evasive to moduÅ‚ manewrÃ³w omijajÄ…cych dla Apache, zapewniajÄ…cy
+akcje omijajÄ…ce w przypadku atakÃ³w DoS, DDoS lub brute force na usÅ‚ugÄ™
+HTTP. ZostaÅ‚ zaprojektowany takÅ¼e jako narzÄ™dzie do wykrywania i
+zarzÄ…dzania sieciÄ…, moÅ¼e byÄ‡ Å‚atwo skonfigurowany do wspÃ³Å‚pracy z
 ipchains, firewallami, routerami itp. mod_dosevasive obecnie raportuje
-nadu¿ycia poczt± elektroniczn± i poprzez sysloga.
+naduÅ¼ycia pocztÄ… elektronicznÄ… i poprzez sysloga.
 
 %prep
 %setup -q -n mod_%{mod_name}
