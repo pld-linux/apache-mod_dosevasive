@@ -13,7 +13,7 @@ Source0:	http://www.nuclearelephant.com/projects/mod_evasive/mod_%{mod_name}_%{v
 # Source0-md5:	784fca4a124f25ccff5b48c7a69a65e5
 Source1:	%{name}.conf
 URL:		http://www.nuclearelephant.com/projects/mod_evasive/
-BuildRequires:	%{apxs}
+BuildRequires:	apache-apxs >= 2.0
 BuildRequires:	apache-devel >= 2.0
 BuildRequires:	rpmbuild(macros) >= 1.268
 BuildRequires:	zlib-devel
