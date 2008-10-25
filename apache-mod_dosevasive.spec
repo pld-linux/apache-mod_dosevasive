@@ -8,7 +8,7 @@ Name:		apache-mod_%{mod_name}
 Version:	1.10.1
 Release:	1
 License:	GPL v2+
-Group:		Networking/Daemons
+Group:		Networking/Daemons/HTTP
 Source0:	http://www.nuclearelephant.com/projects/mod_evasive/mod_%{mod_name}_%{version}.tar.gz
 # Source0-md5:	784fca4a124f25ccff5b48c7a69a65e5
 Source1:	%{name}.conf
