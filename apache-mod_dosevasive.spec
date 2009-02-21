@@ -1,7 +1,7 @@
 # TODO: cp spec name to apache-mod_evasive.spec as it is now official name
 # see http://www.nuclearelephant.com/projects/dosevasive/
 %define		mod_name	evasive
-%define 	apxs		/usr/sbin/apxs
+%define		apxs		/usr/sbin/apxs
 Summary:	Apache DoS Evasive Maneuvers Module
 Summary(pl.UTF-8):	Moduł manewrów omijających ataki DoS dla Apache
 Name:		apache-mod_%{mod_name}
@@ -9,10 +9,10 @@ Version:	1.10.1
 Release:	1
 License:	GPL v2+
 Group:		Networking/Daemons/HTTP
-Source0:	http://www.nuclearelephant.com/projects/mod_evasive/mod_%{mod_name}_%{version}.tar.gz
+Source0:	http://www.zdziarski.com/projects/mod_evasive/mod_%{mod_name}_%{version}.tar.gz
 # Source0-md5:	784fca4a124f25ccff5b48c7a69a65e5
 Source1:	%{name}.conf
-URL:		http://www.nuclearelephant.com/projects/mod_evasive/
+URL:		http://www.zdziarski.com/projects/mod_evasive/
 BuildRequires:	%{apxs}
 BuildRequires:	apache-devel >= 2.0
 BuildRequires:	rpmbuild(macros) >= 1.268
